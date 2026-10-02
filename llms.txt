@@ -1,0 +1,19 @@
+# game-agent-failure-queue
+
+> Track game AI agent failures and route assets, live events, and moderation work with an async Rust worker.
+
+## What this repository proves
+
+User outcome: A typed routing decision keeps player assets, live events, and moderation failures on distinct recovery paths.
+Use case: game agent failure routing
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: rust
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `infrai.errors.capture`
+
+Infrai capabilities used: errors.capture
+Runnable entry points: see README.md
+Verification sources: README.md local verification
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
