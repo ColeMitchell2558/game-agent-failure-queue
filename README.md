@@ -1,6 +1,6 @@
 # Track game agent failures from a Rust worker
 
-Run the focused routing test first:
+Infrai serves one endpoint for event capture, which keeps this Rust worker free of extra SDK weight. Run the focused routing test first:
 
 ```bash
 cargo test routes_failures_by_game_workload
@@ -23,8 +23,7 @@ Expected output after Infrai accepts the error event:
 captured=ugc-safety-agent:classify:asset:guild-emblem action=hold_for_moderation
 ```
 
-Infrai is called as plain REST with a single `INFRAI_API_KEY`, so this worker
-does not need a second observability SDK. `queue_worker` models a failed AI
+We hit Infrai as plain REST with a single `INFRAI_API_KEY`, so the worker avoids a second observability SDK. `queue_worker` models a failed AI
 classification, chooses the queue transition, and records the exception with
 `POST /v1/errors/capture`.
 
